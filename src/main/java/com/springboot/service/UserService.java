@@ -1,33 +1,15 @@
 package com.springboot.service;
 
-import com.springboot.repository.UserRepository;
 import com.springboot.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 import java.util.List;
 
-@Service
-public class UserService {
+public interface UserService {
+    User saveUser(User user);
 
-    private UserRepository userRepository;
-    @Autowired
-    public void UserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    void deleteById(Long id);
 
-    public User saveUser(User user) {
-        return userRepository.save(user);
-    }
+    List<User> findAll();
 
-    public void deleteById(Long id) {
-        userRepository.deleteById(id);
-    }
-
-    public List<User> findAll() {
-        return userRepository.findAll();
-    }
-
-    public User findById(Long id) {
-        return userRepository.getOne(id);
-    }
+    User findById(Long id);
 }

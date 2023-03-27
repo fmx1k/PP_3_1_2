@@ -2,6 +2,7 @@ package com.springboot.controller;
 
 import com.springboot.entity.User;
 import com.springboot.service.UserService;
+import com.springboot.service.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,7 @@ public class UserController {
 
 	private UserService userService;
 
-	public UserController(UserService userService) {
+	public UserController(UserServiceImpl userService) {
 		this.userService = userService;
 	}
 	@GetMapping("/users")
